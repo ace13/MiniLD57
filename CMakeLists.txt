@@ -14,7 +14,12 @@ FOREACH(CONF ${CMAKE_CONFIGURATION_TYPES})
     SET("CMAKE_RUNTIME_OUTPUT_DIRECTORY_${CONF}" "${OUTPUT_BINDIR}")
 ENDFOREACH()
 
-find_package(OpenSceneGraph 3.2.0 REQUIRED osgDB osgGA osgText osgUtil osgViewer)
+find_package(OpenSceneGraph 3.3.0 REQUIRED osgDB osgGA osgText osgUtil osgViewer)
+
+IF (NOT WIN32)
+	SET(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} -std=c++11)
+	SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -std=c++11)
+ENDIF()
 
 include_directories(${OPENSCENEGRAPH_INCLUDE_DIRS})
 
