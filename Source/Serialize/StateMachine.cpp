@@ -1,8 +1,6 @@
 #include "../StateMachine.hpp"
 
-#ifdef _WIN32
 #define OBJECT_CAST dynamic_cast
-#endif
 #include <osgDB/ObjectWrapper>
 #include <osgDB/Registry>
 #include <osg/ValueObject>
